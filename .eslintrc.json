@@ -1,0 +1,38 @@
+{
+  "extends": "react-app",
+  "rules": {
+    // Similar to how prettier formats the codebase
+    "semi": ["error", "never"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "jsx-quotes": ["error", "prefer-double"],
+    "object-curly-spacing": ["error", "always"],
+
+    // More formatting rules
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "space-before-function-paren": 0,
+
+    // Code quality rules
+    "react/jsx-no-duplicate-props": ["error", { "ignoreCase": false }],
+    "react/jsx-boolean-value": 0,
+    "complexity": ["warn", { "max": 20 }],
+    "max-depth": ["warn", { "max": 4 }],
+    "prefer-destructuring": [
+      "error",
+      { "array": true, "object": true },
+      { "enforceForRenamedProperties": false }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "@material-ui/*/*",
+          "@material-ui/*/*/*",
+          "!@material-ui/*/styles",
+          "!@material-ui/*/styles/*",
+          "!@material-ui/core/test-utils/*"
+        ]
+      }
+    ],
+    "max-lines": ["warn"]
+  }
+}
