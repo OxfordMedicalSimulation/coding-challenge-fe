@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import PropTypes from 'prop-types'
 
 import { useAddPatient } from 'ReduxStore/patients/hooks'
 
@@ -33,7 +34,7 @@ const validationSchema = yup.object({
   campsite: yup.string().required('Campsite is required'),
 })
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ onSubmissionComplete }) => {
   const addPatient = useAddPatient()
 
   const formik = useFormik({
@@ -45,8 +46,10 @@ const RegistrationForm = () => {
       injury: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, actions) => {
       addPatient(values)
+      onSubmissionComplete()
+      actions.resetForm()
     },
   })
 
@@ -132,6 +135,10 @@ const RegistrationForm = () => {
       </Button>
     </form>
   )
+}
+
+RegistrationForm.propTypes = {
+  onSubmissionComplete: PropTypes.func.isRequired,
 }
 
 export default RegistrationForm

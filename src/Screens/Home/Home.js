@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { RegistrationForm } from './components'
+import InfoDialog from 'Shared/InfoDialog'
 
 import { Box, Typography } from '@material-ui/core'
 
 const Home = () => {
+  const [overlayState, setOverlayState] = useState(false)
+  const completeSubmission = () => {
+    setOverlayState(true)
+
+    setTimeout(() => {
+      setOverlayState(false)
+    }, 2500)
+  }
+
   return (
     <Box mx="auto" maxWidth={800}>
       <Typography variant="h4" align="center">
@@ -17,7 +27,8 @@ const Home = () => {
       </Typography>
       <Box mb={4} />
 
-      <RegistrationForm />
+      <RegistrationForm onSubmissionComplete={completeSubmission} />
+      <InfoDialog visible={overlayState} />
     </Box>
   )
 }
