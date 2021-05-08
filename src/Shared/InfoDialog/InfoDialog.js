@@ -13,7 +13,7 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />
 })
 
-const InfoDialog = ({ visible }) => {
+const InfoDialog = ({ visible, title, bodyMessage }) => {
   return (
     <div>
       <Dialog
@@ -23,12 +23,10 @@ const InfoDialog = ({ visible }) => {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">
-          Thanks for registering
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">{title}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Please take a seat while you're waiting.
+            {bodyMessage}
           </DialogContentText>
         </DialogContent>
       </Dialog>
@@ -38,6 +36,8 @@ const InfoDialog = ({ visible }) => {
 
 InfoDialog.propTypes = {
   visible: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  bodyMessage: PropTypes.string.isRequired,
 }
 
 export default InfoDialog

@@ -28,7 +28,11 @@ const Home = () => {
       <Box mb={4} />
 
       <RegistrationForm onSubmissionComplete={completeSubmission} />
-      <InfoDialog visible={overlayState} />
+      <InfoDialog
+        visible={overlayState}
+        title="Thanks for registering"
+        bodyMessage="Please take a seat while you're waiting."
+      />
     </Box>
   )
 }
