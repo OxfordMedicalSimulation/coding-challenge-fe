@@ -36,7 +36,7 @@ const RegistrationForm = () => {
     initialValues: {
       firstName: '',
       lastName: '',
-      dob: get18YearsAgo(),
+      dob: '',
       campsite: '',
       injury: '',
     },
@@ -85,6 +85,7 @@ const RegistrationForm = () => {
         id="dob"
         name="dob"
         label="Date of birth"
+        InputLabelProps={{ shrink: true }}
         {...formikBindings('dob')}
       />
       <Box mb={2} />
