@@ -1,22 +1,12 @@
-import React, { useState, useCallback } from 'react'
+import React, { useCallback } from 'react'
 // import PropTypes from 'prop-types'
 
+import { useLogin } from 'ReduxStore/auth/hooks'
+import { useSnackbarActions } from 'ReduxStore/snackbar/hooks'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
-import { Box, TextField, Button, Snackbar } from '@material-ui/core'
-import { Alert as MuiAlert } from '@material-ui/lab'
-
-const Alert = (props) => {
-  return <MuiAlert elevation={6} variant="filled" {...props} />
-}
-
-const validUsers = [
-  {
-    email: 'admin@glitchartfest.org',
-    password: 'password',
-  },
-]
+import { Box, TextField, Button } from '@material-ui/core'
 
 const validationSchema = yup.object({
   email: yup
@@ -30,17 +20,16 @@ const validationSchema = yup.object({
 })
 
 const AuthForm = () => {
-  const [snackbarOpen, setSnackbarOpen] = useState(false)
-  const [snackMessage, setSnackMessage] = useState(null)
+  const { showSnack } = useSnackbarActions()
 
   const triggerSuccessSnack = () => {
-    setSnackMessage('success')
-    setSnackbarOpen(true)
+    showSnack({ type: 'success', message: 'Thanks for logging in!' })
   }
   const triggerErrorSnack = () => {
-    setSnackMessage('error')
-    setSnackbarOpen(true)
+    showSnack({ type: 'warning', message: 'Incorrect email or password.' })
   }
+
+  const login = useLogin()
 
   const formik = useFormik({
     initialValues: {
@@ -49,14 +38,7 @@ const AuthForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
-      const isValid = validUsers.find((user) => {
-        return user.email === values.email && user.password === values.password
-      })
-      if (isValid) {
-        triggerSuccessSnack()
-      } else {
-        triggerErrorSnack()
-      }
+      login(values).then(triggerSuccessSnack).catch(triggerErrorSnack)
     },
   })
 
@@ -102,22 +84,6 @@ const AuthForm = () => {
           Submit
         </Button>
       </form>
-
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={3000}
-        onClose={() => setSnackbarOpen(false)}
-      >
-        {snackMessage === 'success' ? (
-          <Alert onClose={() => setSnackbarOpen(false)} severity="success">
-            Thanks for logging in!
-          </Alert>
-        ) : (
-          <Alert onClose={() => setSnackbarOpen(false)} severity="warning">
-            Incorrect email or password.
-          </Alert>
-        )}
-      </Snackbar>
     </>
   )
 }

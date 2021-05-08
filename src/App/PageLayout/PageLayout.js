@@ -3,6 +3,8 @@ import React from 'react'
 import { CssBaseline } from '@material-ui/core'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 
+import Snackbar from 'Shared/Snackbar'
+
 import { Route } from 'Router'
 
 const theme = createMuiTheme({
@@ -16,6 +18,7 @@ const PageLayout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Route />
+      <Snackbar />
     </ThemeProvider>
   )
 }
