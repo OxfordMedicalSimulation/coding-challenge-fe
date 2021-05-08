@@ -1,0 +1,1 @@
+export const PATIENTS_ENTRY_ADD = 'PATIENTS_ENTRY_ADD'

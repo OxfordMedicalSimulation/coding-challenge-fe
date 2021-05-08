@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react'
 
+import { useAddPatient } from 'ReduxStore/patients/hooks'
+
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
@@ -32,6 +34,8 @@ const validationSchema = yup.object({
 })
 
 const RegistrationForm = () => {
+  const addPatient = useAddPatient()
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -42,7 +46,7 @@ const RegistrationForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+      addPatient(values)
     },
   })
 

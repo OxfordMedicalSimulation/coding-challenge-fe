@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 
-const rootReducer = combineReducers({})
+import patients from 'ReduxStore/patients/reducers'
+
+const rootReducer = combineReducers({ patients })
 
 export default rootReducer
