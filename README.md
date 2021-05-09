@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# GlitchArt Fest Challenge App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Login details
+
+Use the following details when trying to access auth-protected screens:
+
+``` #!/bin/bash
+username: admin@glitchartfest.com
+password: password
+```
 
 ## Available Scripts
 
@@ -18,6 +27,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn lint`
+
+Runs eslint on the `src` folder.\
 
 ### `yarn build`
 
