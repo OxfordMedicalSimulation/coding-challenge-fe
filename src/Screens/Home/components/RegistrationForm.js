@@ -6,9 +6,11 @@ import { useAddPatient } from 'ReduxStore/patients/hooks'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
+import GlitchButton from 'Shared/GlitchButton'
+
 import { get18YearsAgo, getCampsites } from 'Helpers'
 
-import { Box, TextField, Button } from '@material-ui/core'
+import { Box, TextField } from '@material-ui/core'
 
 const validationSchema = yup.object({
   firstName: yup
@@ -36,7 +38,7 @@ const RegistrationForm = ({ onSubmissionComplete }) => {
       lastName: '',
       dob: '',
       campsite: '',
-      injury: '',
+      visitSummary: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
@@ -116,16 +118,14 @@ const RegistrationForm = ({ onSubmissionComplete }) => {
         multiline
         rows={4}
         variant="filled"
-        id="injury"
-        name="injury"
-        label="Summary of injury (optional)"
-        {...formikBindings('injury')}
+        id="visitSummary"
+        name="visitSummary"
+        label="Reason for visit (optional)"
+        {...formikBindings('visitSummary')}
       />
       <Box mb={2} />
 
-      <Button variant="contained" size="large" type="submit">
-        Submit
-      </Button>
+      <GlitchButton size="large" type="submit" title="Submit" />
     </form>
   )
 }

@@ -5,14 +5,14 @@ import { AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAILURE } from '../constants'
 // that completely bypasses authentication when developing
 const validUsers = [
   {
-    email: 'admin@glitchartfest.org',
+    email: 'admin@glitchartfest.com',
     password: 'password',
   },
 ]
 
 export const login = (data) => {
   return (dispatch) => {
-    // This is where we'd check the details against an API
+    // This is where we'd normally check the details against an API
     const isValid = validUsers.find((user) => {
       return user.email === data.email && user.password === data.password
     })

@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react'
-// import PropTypes from 'prop-types'
 
 import { useLogin } from 'ReduxStore/auth/hooks'
 import { useSnackbarActions } from 'ReduxStore/snackbar/hooks'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
-import { Box, TextField, Button } from '@material-ui/core'
+import GlitchButton from 'Shared/GlitchButton'
+
+import { Box, TextField } from '@material-ui/core'
 
 const validationSchema = yup.object({
   email: yup
@@ -26,7 +27,7 @@ const AuthForm = () => {
     showSnack({ type: 'success', message: 'Thanks for logging in!' })
   }
   const triggerErrorSnack = () => {
-    showSnack({ type: 'warning', message: 'Incorrect email or password.' })
+    showSnack({ type: 'error', message: 'Incorrect email or password.' })
   }
 
   const login = useLogin()
@@ -80,14 +81,10 @@ const AuthForm = () => {
         />
         <Box mb={2} />
 
-        <Button fullWidth variant="contained" size="large" type="submit">
-          Submit
-        </Button>
+        <GlitchButton fullWidth size="large" type="submit" title="Submit" />
       </form>
     </>
   )
 }
-
-AuthForm.propTypes = {}
 
 export default AuthForm

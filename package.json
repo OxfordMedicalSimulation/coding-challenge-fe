@@ -21,6 +21,7 @@
     "reduce-reducers": "^1.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "tinycolor2": "^1.4.2",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
   },
@@ -28,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

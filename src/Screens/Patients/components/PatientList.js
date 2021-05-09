@@ -99,7 +99,7 @@ const PatientList = () => {
       <Box mb={2} />
 
       {sortedPatients.map(
-        ({ firstName, lastName, injury, dob, campsite, seen }, index) => {
+        ({ firstName, lastName, visitSummary, dob, campsite, seen }, index) => {
           const formattedDate = new Date(dob).toLocaleDateString('en-GB')
           return (
             <React.Fragment key={index}>
@@ -158,7 +158,7 @@ const PatientList = () => {
 
                 <Collapse in={index === expanded}>
                   <Typography variant="body2">
-                    <b>Reason for visit:</b> {injury}
+                    <b>Reason for visit:</b> {visitSummary}
                   </Typography>
                   <Typography variant="body2">
                     <b>Date of birth:</b> {formattedDate}

@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 
 import { useSnackbarData, useSnackbarActions } from 'ReduxStore/snackbar/hooks'
 
@@ -26,7 +25,5 @@ const Snackbar = () => {
     </MuiSnackbar>
   )
 }
-
-Snackbar.propTypes = {}
 
 export default Snackbar

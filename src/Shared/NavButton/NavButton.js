@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 
 import { useHistory, useLocation } from 'react-router-dom'
 
@@ -11,8 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   fab: {
     position: 'absolute',
-    left: theme.spacing(2),
-    top: theme.spacing(2),
+    left: theme.spacing(3),
     zIndex: 10000,
   },
 }))
@@ -30,6 +28,7 @@ const NavButton = () => {
           aria-label="Patients"
           className={classes.fab}
           onClick={() => history.push('/patients')}
+          size="small"
         >
           <SupervisorAccount />
         </Fab>
@@ -38,6 +37,7 @@ const NavButton = () => {
           aria-label="Patients"
           className={classes.fab}
           onClick={() => history.push('/')}
+          size="small"
         >
           <ArrowBack />
         </Fab>
@@ -45,7 +45,5 @@ const NavButton = () => {
     </>
   )
 }
-
-NavButton.propTypes = {}
 
 export default NavButton

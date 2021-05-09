@@ -31,7 +31,7 @@ export const getPatients = () => {
       .toJSON()
       .slice(0, 10),
     campsite: faker.helpers.randomize(campsites).value,
-    injury: injuries[index],
+    visitSummary: injuries[index],
     seen: faker.helpers.randomize([true, false]),
   }))
 }
