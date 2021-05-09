@@ -1,7 +1,8 @@
 import { AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAILURE } from '../constants'
 
 // TODO: This is too complicated to type when developing
-// Consider adding a shorted pair of credentials
+// Consider adding a shorted pair of credentials or something
+// that completely bypasses authentication when developing
 const validUsers = [
   {
     email: 'admin@glitchartfest.org',

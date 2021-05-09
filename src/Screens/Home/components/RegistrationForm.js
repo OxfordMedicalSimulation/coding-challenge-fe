@@ -6,16 +6,9 @@ import { useAddPatient } from 'ReduxStore/patients/hooks'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
-import { get18YearsAgo } from 'Helpers'
+import { get18YearsAgo, getCampsites } from 'Helpers'
 
 import { Box, TextField, Button } from '@material-ui/core'
-
-const campsites = [
-  'HEX corruption',
-  'Data lake',
-  'Protocol resumption',
-  'The encoded fields',
-].map((campsite, index) => ({ value: index, label: campsite }))
 
 const validationSchema = yup.object({
   firstName: yup
@@ -47,7 +40,7 @@ const RegistrationForm = ({ onSubmissionComplete }) => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, actions) => {
-      addPatient(values)
+      addPatient({ ...values, seen: false })
       onSubmissionComplete()
       actions.resetForm()
     },
@@ -110,7 +103,7 @@ const RegistrationForm = ({ onSubmissionComplete }) => {
         {...formikBindings('campsite')}
       >
         <option disabled value=""></option>
-        {campsites.map((option) => (
+        {getCampsites().map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { PatientList } from './components'
+
 import { useIsAuthenticated } from 'ReduxStore/auth/hooks'
 import AuthDialog from 'Shared/AuthDialog'
 
@@ -14,11 +16,14 @@ const Patients = () => {
         visible={!isAuthenticated}
         bodyMessage="Please take a seat while you're waiting."
       />
-      {isAuthenticated && (
-        <Typography variant="h4" align="center">
-          Patients list
-        </Typography>
-      )}
+
+      <Box mb={2} />
+      <Typography variant="h4" align="center">
+        Patient List
+      </Typography>
+      <Box mb={4} />
+
+      {isAuthenticated && <PatientList />}
     </Box>
   )
 }
