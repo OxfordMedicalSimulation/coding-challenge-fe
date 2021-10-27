@@ -1,10 +1,11 @@
 import { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import {
-  showSnack as showSnackAction,
-  hideSnack as hideSnackAction,
-} from '../actions'
+import snackbarSlice from '../snackbarSlice'
+const {
+  showSnack: showSnackAction,
+  hideSnack: hideSnackAction,
+} = snackbarSlice.actions
 
 export const useSnackbarActions = () => {
   const dispatch = useDispatch()

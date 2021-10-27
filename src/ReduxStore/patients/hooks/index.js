@@ -1,1 +1,1 @@
-export * from './patientsCRUD'
+export * from './patients'
