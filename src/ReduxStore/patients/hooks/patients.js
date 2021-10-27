@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { addEntry } from '../actions'
+import patientsSlice from '../patientsSlice'
+const { addEntry } = patientsSlice.actions
 
 export const usePatients = () => {
   const { entries } = useSelector((state) => state.patients)

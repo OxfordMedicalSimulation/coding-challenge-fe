@@ -2,12 +2,12 @@ import { combineReducers } from 'redux'
 
 import authSlice from 'ReduxStore/auth'
 import snackbar from 'ReduxStore/snackbar/reducers'
-import patients from 'ReduxStore/patients/reducers'
+import patientsSlice from 'ReduxStore/patients'
 
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
   snackbar,
-  patients,
+  patients: patientsSlice.reducer,
 })
 
 export default rootReducer
