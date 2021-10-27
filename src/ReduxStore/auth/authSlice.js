@@ -2,8 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   authenticated: false,
-  authenticating: false,
-  sessionExpiryDialogOpen: false,
+  email: null,
 }
 
 const authSlice = createSlice({
