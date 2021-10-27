@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { CssBaseline } from '@material-ui/core'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 
 import Header from 'Shared/Header'
 import Snackbar from 'Shared/Snackbar'
 
 import { Route } from 'Router'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
